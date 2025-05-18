@@ -6,9 +6,9 @@ import { Configuration, LogLevel } from "@azure/msal-browser";
 // MSAL configuration parameters
 export const msalConfig: Configuration = {
   auth: {
-    clientId: import.meta.env.VITE_AZURE_CLIENT_ID || "enter_your_client_id_here", // App (client) ID from app registration in Azure portal
-    authority: `https://login.microsoftonline.com/${import.meta.env.VITE_AZURE_TENANT_ID || "common"}`, // "common" allows users from any Microsoft Entra ID organization or personal account
-    redirectUri: window.location.origin, // Defaults to the application's host URL
+    clientId: import.meta.env.VITE_AZURE_CLIENT_ID as string,
+    authority: `https://login.microsoftonline.com/${import.meta.env.VITE_AZURE_TENANT_ID}`,
+    redirectUri: window.location.origin,
   },
   cache: {
     cacheLocation: "sessionStorage", // Configures cache location - "sessionStorage" or "localStorage"
