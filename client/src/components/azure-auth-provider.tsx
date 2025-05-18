@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import { MsalProvider, useMsal } from "@azure/msal-react";
 import msalInstance, { AuthService } from "../lib/auth-service";
@@ -10,11 +11,11 @@ const AuthInitializer: React.FC<{ children: React.ReactNode }> = ({ children }) 
     // Initialize authentication and handle redirect response
     const initAuth = async () => {
       try {
-        // Handle response from authentication redirect
-        await AuthService.handleRedirectResponse();
-        
-        // Initialize the auth service
+        // Initialize the auth service first
         AuthService.initialize();
+        
+        // Then handle response from authentication redirect
+        await AuthService.handleRedirectResponse();
       } catch (error) {
         console.error("Authentication initialization error:", error);
       }
