@@ -8,11 +8,10 @@ export function cn(...inputs: ClassValue[]) {
 
 const setupWebSocket = () => {
   const token = localStorage.getItem('token');
-  const isDev = process.env.NODE_ENV === 'development';
-  const port = 5000;
-  const host = isDev ? `0.0.0.0:${port}` : window.location.host;
+  const isReplit = window.location.hostname.includes('repl.co');
+  const wsHost = isReplit ? window.location.host : '0.0.0.0:5000';
   const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-  const wsUrl = `${protocol}//${host}/?token=${token}`;
+  const wsUrl = `${protocol}//${wsHost}/?token=${token}`;
   
   const ws = new WebSocket(wsUrl);
   
