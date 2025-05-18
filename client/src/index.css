@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  
+  /* Azure specific colors */
+  --azure-50: 210 100% 97.5%;
+  --azure-100: 210 100% 95%;
+  --azure-200: 210 100% 90%;
+  --azure-300: 210 100% 80%;
+  --azure-400: 210 100% 65%;
+  --azure-500: 210 100% 50%;
+  --azure-600: 212 100% 40%;
+  --azure-700: 215 100% 35%;
+  --azure-800: 220 100% 30%;
+  --azure-900: 225 100% 25%;
+  
+  /* Dark specific colors */
+  --dark-100: 220 3% 81%;
+  --dark-200: 220 3% 65%;
+  --dark-300: 220 3% 49%;
+  --dark-400: 220 3% 32%;
+  --dark-500: 220 3% 12%;
+  --dark-600: 220 3% 10%;
+  --dark-700: 220 3% 7%;
+  --dark-800: 220 3% 5%;
+  --dark-900: 220 3% 2%;
+
+  /* Chart colors */
+  --chart-1: var(--azure-500);
+  --chart-2: 142 71% 45%;
+  --chart-3: 47 100% 50%;
+  --chart-4: 0 100% 60%;
+  --chart-5: 262 100% 60%;
+
+  /* Sidebar specific colors */
+  --sidebar-background: 220 3% 95%;
+  --sidebar-foreground: 220 3% 12%;
+  --sidebar-primary: 210 100% 50%;
+  --sidebar-primary-foreground: 210 100% 97.5%;
+  --sidebar-accent: 220 3% 90%;
+  --sidebar-accent-foreground: 220 3% 12%;
+  --sidebar-border: 220 3% 85%;
+  --sidebar-ring: 210 100% 50%;
+}
+
+.dark {
+  --background: 220 3% 12%;
+  --foreground: 0 0% 98%;
+  --muted: 220 3% 16%;
+  --muted-foreground: 220 3% 65%;
+  --popover: 220 3% 12%;
+  --popover-foreground: 0 0% 98%;
+  --card: 220 3% 12%;
+  --card-foreground: 0 0% 98%;
+  --border: 220 3% 16%;
+  --input: 220 3% 16%;
+  --primary: 210 100% 50%;
+  --primary-foreground: 210 100% 97.5%;
+  --secondary: 220 3% 16%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 220 3% 16%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 220 3% 84%;
+  
+  /* Sidebar specific colors */
+  --sidebar-background: 220 3% 10%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 210 100% 50%;
+  --sidebar-primary-foreground: 210 100% 97.5%;
+  --sidebar-accent: 220 3% 16%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 220 3% 20%;
+  --sidebar-ring: 210 100% 50%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground overflow-hidden;
+  }
+}
+
+@layer components {
+  .resize-handle {
+    @apply w-1 cursor-col-resize bg-border hover:bg-primary/50 active:bg-primary;
+  }
+  
+  .resize-handle-horizontal {
+    @apply h-1 cursor-row-resize bg-border hover:bg-primary/50 active:bg-primary;
+  }
+  
+  .monaco-editor {
+    @apply h-full w-full bg-background text-foreground font-mono relative dark:bg-[#1e1e1e] dark:text-[#d4d4d4];
+  }
+  
+  .terminal {
+    @apply font-mono bg-[#121212] text-white p-2 overflow-auto h-full;
+  }
+  
+  .terminal-line::before {
+    content: "$ ";
+    @apply text-primary;
+  }
+}
