@@ -9,7 +9,8 @@ export const msalConfig: Configuration = {
     clientId: import.meta.env.VITE_AZURE_CLIENT_ID as string,
     authority: `https://login.microsoftonline.com/${import.meta.env.VITE_AZURE_TENANT_ID}`,
     redirectUri: "https://62faa3fa-b338-46c7-adc8-0bfcdc1d4b35-00-wriuc6nnkw40.sisko.repl.co/login",
-    postLogoutRedirectUri: "https://62faa3fa-b338-46c7-adc8-0bfcdc1d4b35-00-wriuc6nnkw40.sisko.repl.co/login"
+    postLogoutRedirectUri: "https://62faa3fa-b338-46c7-adc8-0bfcdc1d4b35-00-wriuc6nnkw40.sisko.repl.co/login",
+    navigateToLoginRequestUrl: true
   },
   cache: {
     cacheLocation: "sessionStorage", // Configures cache location - "sessionStorage" or "localStorage"
