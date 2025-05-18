@@ -8,11 +8,16 @@ export function cn(...inputs: ClassValue[]) {
 
 const setupWebSocket = () => {
   const token = localStorage.getItem('token');
-  const baseUrl = window.location.origin.replace('http', 'ws');
-  const ws = new WebSocket(`${baseUrl}/?token=${token}`);
+  const isDev = process.env.NODE_ENV === 'development';
+  const port = 5000;
+  const host = isDev ? `0.0.0.0:${port}` : window.location.host;
+  const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const wsUrl = `${protocol}//${host}/?token=${token}`;
+  
+  const ws = new WebSocket(wsUrl);
   
   ws.onopen = () => {
-    console.log('WebSocket connected');
+    console.log('WebSocket connected to:', wsUrl);
   };
 
   ws.onmessage = (event) => {
