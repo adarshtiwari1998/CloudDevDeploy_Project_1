@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 const setupWebSocket = () => {
   const token = localStorage.getItem('token');
   const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-  const host = window.location.host;
+  const host = process.env.SERVER_URL || window.location.host;
   const wsUrl = `${protocol}//${host}/ws?token=${token}`;
   const ws = new WebSocket(wsUrl);
   

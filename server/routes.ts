@@ -19,8 +19,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     perMessageDeflate: false,
     clientTracking: true,
     verifyClient: (info, callback) => {
-      // Allow all origins
-      callback(true);
+      const origin = info.origin;
+      // Allow connections from our server URL or the current host
+      const allowedOrigins = [process.env.SERVER_URL, info.req.headers.host];
+      callback(allowedOrigins.includes(origin));
     }
   });
 
