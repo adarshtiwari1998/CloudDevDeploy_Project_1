@@ -1,0 +1,19 @@
+client:536 WebSocket connection to 'wss://53478cc1-4697-4791-8519-382b86e24ea0-00-1in99gcpefkg1.pike.replit.dev/?token=lEV7ovQ-IWji' failed: 
+
+client:536 Uncaught (in promise) SyntaxError: Failed to construct 'WebSocket': The URL 'wss://localhost:undefined/?token=lEV7ovQ-IWji' is invalid.
+    at setupWebSocket (client:536:19)
+    at fallback (client:509:16)
+    at WebSocket.<anonymous> (client:555:7)
+chunk-HDQB3KOA.js?v=6843fac7:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+auth-config.ts:28 [Sun, 18 May 2025 14:06:00 GMT] : [] : @azure/msal-browser@4.12.0 : Verbose - Claims-based caching is disabled. Clearing the previous cache with claims
+auth-config.ts:28 [Sun, 18 May 2025 14:06:00 GMT] : [] : @azure/msal-browser@4.12.0 : Verbose - Event callback registered with id: 0196e3b7-44a1-7fa6-b579-40c422e1c454
+auth-config.ts:28 [Sun, 18 May 2025 14:06:00 GMT] : [] : @azure/msal-react@3.0.12 : Verbose - MsalProvider - Registered event callback with id: 0196e3b7-44a1-7fa6-b579-40c422e1c454
+auth-config.ts:25 [Sun, 18 May 2025 14:06:00 GMT] : [] : @azure/msal-browser@4.12.0 : Info - initialize has already been called, exiting early.
+auth-config.ts:28 [Sun, 18 May 2025 14:06:00 GMT] : [] : @azure/msal-browser@4.12.0 : Verbose - handleRedirectPromise called
+auth-config.ts:28 [Sun, 18 May 2025 14:06:00 GMT] : [] : @azure/msal-browser@4.12.0 : Verbose - getAllAccounts called
+auth-config.ts:28 [Sun, 18 May 2025 14:06:00 GMT] : [] : @azure/msal-browser@4.12.0 : Verbose - Emitting event to callback 0196e3b7-44a1-7fa6-b579-40c422e1c454: msal:handleRedirectStart
+auth-config.ts:28 [Sun, 18 May 2025 14:06:00 GMT] : [] : @azure/msal-browser@4.12.0 : Verbose - handleRedirectPromise has been called for the first time, storing the promise
+auth-config.ts:25 [Sun, 18 May 2025 14:06:00 GMT] : [] : @azure/msal-react@3.0.12 : Info - MsalProvider - msal:handleRedirectStart results in setting inProgress from startup to handleRedirect
+2
+auth-config.ts:28 [Sun, 18 May 2025 14:06:00 GMT] : [] : @azure/msal-browser@4.12.0 : Verbose - getAllAccounts called
+﻿
