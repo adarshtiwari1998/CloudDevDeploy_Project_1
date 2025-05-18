@@ -10,9 +10,12 @@ const AuthInitializer: React.FC<{ children: React.ReactNode }> = ({ children }) 
   useEffect(() => {
     const initAuth = async () => {
       try {
-        await msalInstance.initialize();
-        AuthService.initialize();
-        await AuthService.handleRedirectResponse();
+        await instance.initialize();
+        await instance.handleRedirectPromise().then((response) => {
+          if (response) {
+            instance.setActiveAccount(response.account);
+          }
+        });
       } catch (error) {
         console.error("Authentication initialization error:", error);
       }
