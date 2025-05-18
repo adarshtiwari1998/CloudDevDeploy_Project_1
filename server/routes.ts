@@ -13,7 +13,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
   const httpServer = createServer(app);
   
   // WebSocket server for terminal and real-time collaboration
-  const wss = new WebSocketServer({ server: httpServer });
+  const wss = new WebSocketServer({ 
+    server: httpServer,
+    path: "/ws",
+    perMessageDeflate: false,
+    clientTracking: true,
+    verifyClient: (info, callback) => {
+      // Allow all origins
+      callback(true);
+    }
+  });
 
   // WebSocket connection handler
   wss.on("connection", (ws) => {
