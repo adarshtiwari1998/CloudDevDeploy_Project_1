@@ -9,11 +9,11 @@ export function cn(...inputs: ClassValue[]) {
 const setupWebSocket = () => {
   const token = localStorage.getItem('token');
   const isSecure = window.location.protocol === 'https:';
-  const wsProtocol = isSecure ? 'wss:' : 'ws:';
-  const wsHost = window.location.host;
-  const wsUrl = `${wsProtocol}//${wsHost}?token=${token}`;
+  const wsProtocol = isSecure ? 'wss' : 'ws';
+  const host = window.location.host || '0.0.0.0:5000';
+  const wsUrl = `${wsProtocol}://${host}/ws?token=${token}`;
   console.log('Connecting to WebSocket:', wsUrl);
-  const ws = new WebSocket(wsUrl);
+  const ws = new WebSocket(wsUrl, 'vite-hmr');
   
   ws.onopen = () => {
     console.log('WebSocket connected to:', wsUrl);
