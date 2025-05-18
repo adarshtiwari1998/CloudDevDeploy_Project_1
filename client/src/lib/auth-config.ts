@@ -1,12 +1,15 @@
+
+import { SERVER_URL } from './config';
+
 import { Configuration, LogLevel } from "@azure/msal-browser";
 
 export const msalConfig: Configuration = {
   auth: {
     clientId: import.meta.env.VITE_AZURE_CLIENT_ID as string,
     authority: `https://login.microsoftonline.com/${import.meta.env.VITE_AZURE_TENANT_ID}`,
-    redirectUri: "https://62faa3fa-b338-46c7-adc8-0bfcdc1d4b35-00-wriuc6nnkw40.sisko.repl.co/login",
+    redirectUri: `${SERVER_URL}/login`,
     navigateToLoginRequestUrl: true,
-    postLogoutRedirectUri: "https://62faa3fa-b338-46c7-adc8-0bfcdc1d4b35-00-wriuc6nnkw40.sisko.repl.co",
+    postLogoutRedirectUri: SERVER_URL,
   },
   system: {
     allowNativeBroker: false,
