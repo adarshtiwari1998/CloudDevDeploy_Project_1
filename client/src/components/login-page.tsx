@@ -8,8 +8,13 @@ import { SquareAsterisk } from 'lucide-react';
  * Login page component with Azure Authentication
  */
 export default function LoginPage() {
-  const handleLogin = () => {
-    AuthService.login();
+  const handleLogin = async () => {
+    try {
+      await AuthService.handleRedirectResponse();
+      AuthService.login();
+    } catch (error) {
+      console.error('Login error:', error);
+    }
   };
 
   return (

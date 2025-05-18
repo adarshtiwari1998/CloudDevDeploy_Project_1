@@ -51,8 +51,16 @@ export class AuthService {
   /**
    * Redirect to Microsoft login page
    */
-  public static login(): void {
-    msalInstance.loginRedirect(loginRequest);
+  public static async login(): Promise<void> {
+    try {
+      await msalInstance.loginRedirect({
+        ...loginRequest,
+        redirectStartPage: window.location.href
+      });
+    } catch (error) {
+      console.error('Login redirect error:', error);
+      throw error;
+    }
   }
 
   /**
