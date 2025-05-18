@@ -10,6 +10,9 @@ import { msalConfig, loginRequest, azureManagementScopes } from './auth-config';
 // Create the MSAL Application instance
 const msalInstance = new PublicClientApplication(msalConfig);
 
+// Initialize MSAL instance
+msalInstance.initialize().catch(console.error);
+
 /**
  * Authentication Service for Azure CloudIDE
  * Handles Microsoft Entra ID (Azure AD) authentication via MSAL
@@ -23,7 +26,7 @@ export class AuthService {
     try {
       // Handle the redirect response
       const response = await msalInstance.handleRedirectPromise();
-      
+
       // If response is null, user is not returning from auth redirect
       if (response !== null) {
         // Store the account
@@ -129,7 +132,7 @@ export class AuthService {
     email: string | undefined;
   } {
     const account = msalInstance.getActiveAccount();
-    
+
     return {
       name: account?.name,
       username: account?.username,
