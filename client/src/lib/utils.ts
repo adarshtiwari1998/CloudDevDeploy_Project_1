@@ -7,10 +7,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 const setupWebSocket = () => {
-  const token = localStorage.getItem('token');
-  const currentUrl = new URL(window.location.href);
-  const wsProtocol = currentUrl.protocol === 'https:' ? 'wss' : 'ws';
-  const wsUrl = `${wsProtocol}://${currentUrl.host}/ws?token=${token}`;
+  const wsProtocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+  const wsUrl = `${wsProtocol}://${window.location.host}/ws`;
   console.log('Connecting to WebSocket:', wsUrl);
   
   try {
