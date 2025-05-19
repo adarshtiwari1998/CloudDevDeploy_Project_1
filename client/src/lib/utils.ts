@@ -8,12 +8,17 @@ export function cn(...inputs: ClassValue[]) {
 
 const setupWebSocket = () => {
   const token = localStorage.getItem('token');
-  const isSecure = window.location.protocol === 'https:';
-  const wsProtocol = isSecure ? 'wss' : 'ws';
-  const host = window.location.host || '0.0.0.0:5000';
-  const wsUrl = `${wsProtocol}://${host}/ws?token=${token}`;
+  // Get the current URL to derive WebSocket URL
+  const currentUrl = new URL(window.location.href);
+  const wsProtocol = currentUrl.protocol === 'https:' ? 'wss' : 'ws';
+  const wsUrl = `${wsProtocol}://${currentUrl.host}/ws?token=${token}`;
   console.log('Connecting to WebSocket:', wsUrl);
-  const ws = new WebSocket(wsUrl, 'vite-hmr');
+  
+  try {
+    const ws = new WebSocket(wsUrl);
+    ws.addEventListener('error', (error) => {
+      console.error('WebSocket error:', error);
+    });
   
   ws.onopen = () => {
     console.log('WebSocket connected to:', wsUrl);
