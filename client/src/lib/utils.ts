@@ -8,7 +8,8 @@ export function cn(...inputs: ClassValue[]) {
 
 const setupWebSocket = () => {
   const wsProtocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
-  const wsUrl = `${wsProtocol}://${window.location.host}/ws`;
+  const host = window.location.host || '0.0.0.0:5000';
+  const wsUrl = `${wsProtocol}://${host}/ws`;
   console.log('Connecting to WebSocket:', wsUrl);
   
   try {
