@@ -19,9 +19,16 @@ const setupWebSocket = () => {
     ws.addEventListener('error', (error) => {
       console.error('WebSocket error:', error);
     });
-  
-  ws.onopen = () => {
-    console.log('WebSocket connected to:', wsUrl);
+    
+    ws.onopen = () => {
+      console.log('WebSocket connected to:', wsUrl);
+    };
+    
+    return ws;
+  } catch (error) {
+    console.error('Failed to create WebSocket:', error);
+    throw error;
+  }
   };
 
   ws.onmessage = (event) => {
